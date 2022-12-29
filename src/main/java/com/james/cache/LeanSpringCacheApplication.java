@@ -37,7 +37,9 @@ public class LeanSpringCacheApplication {
 		RedisCacheConfiguration defaultConfig = defaultCacheConfig();
 
 		defaultConfig = defaultConfig
+                // 指定序列化方式防止乱码
 				.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(serializer))
+                // cacheName:key 组织缓存名，可以用可视化工具比较好的观察结果
 				.computePrefixWith(cacheName -> cacheName + ":");
 
 		return RedisCacheManager.builder(connectionFactory)
