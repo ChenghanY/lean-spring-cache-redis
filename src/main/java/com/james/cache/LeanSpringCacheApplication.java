@@ -27,6 +27,7 @@ public class LeanSpringCacheApplication {
 
 	@Bean
 	public JedisConnectionFactory redisConnectionFactory() {
+        // 192.168.208.129 是虚拟机的地址
 		RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("192.168.208.129", 6379);
 		return new JedisConnectionFactory(config);
 	}
